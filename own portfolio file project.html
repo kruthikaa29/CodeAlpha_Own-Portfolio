@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #020617;
+            padding: 15px;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 10%;
+            min-height: 100vh;
+        }
+
+        h1,
+        h2 {
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        /* HERO */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #38bdf8;
+            color: #020617;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #0ea5e9;
+        }
+
+        /* ABOUT */
+        .about p {
+            max-width: 700px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .skill {
+            background: #020617;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill:hover {
+            transform: scale(1.05);
+            background: #1e293b;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background: #020617;
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            background: #1e293b;
+        }
+
+        /* CONTACT */
+        .contact input,
+        .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #020617;
+        }
+
+        /* ANIMATION */
+        .fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.6s;
+        }
+
+        .fade.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero fade">
+        <h1>Hello, I'm <span style="color:#fff;">kruthikaa</span></h1>
+        <p>A passionate student / developer building modern web applications.</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <section id="about" class="about fade">
+        <h2>About Me</h2>
+        <p>
+            I am a motivated learner interested in web development and software
+            engineering. I enjoy building responsive websites and learning new
+            technologies.
+        </p>
+    </section>
+
+    <section id="skills" class="fade">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">C / C++</div>
+            <div class="skill">Java</div>
+            <div class="skill">Node.js</div>
+        </div>
+    </section>
+
+    <section id="projects" class="fade">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Calculator App</h3>
+                <p>Simple calculator using HTML, CSS and JavaScript.</p>
+            </div>
+            <div class="project">
+                <h3>Image Gallery</h3>
+                <p>Responsive image gallery with filters and animations.</p>
+            </div>
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>Personal portfolio to showcase skills and projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact fade">
+        <h2>Contact Me</h2>
+        <input type="text" placeholder="your name">
+        <input type="email" placeholder="your">
+        <textarea rows="4" placeholder="Your Message"></textarea>
+        <button class="btn">Send Message</button>
+    </section>
+
+    <footer>
+        <p>© 2026 Your Name | Portfolio</p>
+    </footer>
+
+    <script>
+        // Scroll animation
+        const fades = document.querySelectorAll('.fade');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        fades.forEach(fade => observer.observe(fade));
+    </script>
+
+</body>
+
+</html>
